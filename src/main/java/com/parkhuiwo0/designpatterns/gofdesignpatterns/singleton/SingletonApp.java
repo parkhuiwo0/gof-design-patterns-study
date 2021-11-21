@@ -26,5 +26,16 @@ public class SingletonApp {
         // 두 객체 인스턴스는 다르기 때문에, false라는 결과가 나올 것이다.
         System.out.println(settingsA != settingsA1);
 
+        /**
+         * Thread Safe하게 여러 스레드가 들어오더라도, 같은 인스턴스를 리턴하게 된다.
+         */
+        SettingsB settingsB = SettingsB.getInstance();
+        SettingsB settingsB1 = SettingsB.getInstance();
+
+        // 두 객체 인스턴스는 다르기 때문에, false라는 결과가 나올 것이다.
+        System.out.println(settingsB != settingsB1);
+
+
+
     }
 }
