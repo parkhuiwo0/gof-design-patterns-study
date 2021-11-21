@@ -1,6 +1,6 @@
 package com.parkhuiwo0.designpatterns.gofdesignpatterns.singleton;
 
-public class App {
+public class SingletonApp {
 
     public static void main(String[] args) {
         /**
