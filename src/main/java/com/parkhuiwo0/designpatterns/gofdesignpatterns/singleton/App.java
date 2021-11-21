@@ -9,7 +9,7 @@ public class App {
         Settings settings = new Settings();
         Settings settings1 = new Settings();
 
-        // 두 객체 인스턴스는 다르기 때문에, false라는 결과가 나올 것이다.
+        // 두 객체 인스턴스는 다르기 때문에, true라는 결과가 나올 것이다.
         System.out.println(settings != settings1);
 
 
