@@ -35,6 +35,15 @@ public class SingletonApp {
         // 두 객체 인스턴스는 다르기 때문에, false라는 결과가 나올 것이다.
         System.out.println(settingsB != settingsB1);
 
+        /**
+         * Synchronized의 단점을 보완하기 위해, Double Checked Locking 기법을 이용
+         */
+        SettingsC settingsC = SettingsC.getInstance();
+        SettingsC settingsC1 = SettingsC.getInstance();
+
+        // 두 객체 인스턴스는 다르기 때문에, false라는 결과가 나올 것이다.
+        System.out.println(settingsC != settingsC1);
+
 
 
     }
