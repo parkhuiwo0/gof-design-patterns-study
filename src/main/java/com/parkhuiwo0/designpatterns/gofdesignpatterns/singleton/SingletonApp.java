@@ -87,8 +87,32 @@ public class SingletonApp {
 
         System.out.println(settingsD3 != settingsD4);
 
+        /**
+         * Enum도 싱글톤을 구현하는 방법 중 하나이다. 미리 만들어두기 때문에, 상황을 잘 고려하여야 한다.
+         * Enum은 Enum이라는 클래스를 상속받고 있고, Serializable을 구현하고 있기 때문에
+         * 직렬화/역직렬화에도 안전하다.
+         */
+        SettingsE settingsE = SettingsE.INSTANCE;
+        SettingsE settingsE1 = null;
+        Constructor<?>[] constructors = SettingsE.class.getDeclaredConstructors();
+        for (Constructor<?> constructor1 : constructors) {
+            constructor1.setAccessible(true);
+//            settingsE1 = (SettingsE) constructor1.newInstance("INSTANCE"); // Exception 발생!
+        }
 
+        System.out.println(settingsE != settingsE1);
 
+        SettingsE settingsE2 = SettingsE.INSTANCE;
+        SettingsE settingsE3 = null;
+        try (ObjectOutput output = new ObjectOutputStream(new FileOutputStream("settingsE.obj"))) {
+            output.writeObject(settingsE2);
+        }
+
+        try (ObjectInput input = new ObjectInputStream(new FileInputStream("settingsE.obj"))) {
+            settingsE3 = (SettingsE) input.readObject();
+        }
+
+        System.out.println(settingsE2 != settingsE3);
 
     }
 }
