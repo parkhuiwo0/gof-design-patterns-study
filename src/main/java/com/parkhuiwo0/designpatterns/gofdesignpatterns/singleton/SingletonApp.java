@@ -1,8 +1,19 @@
 package com.parkhuiwo0.designpatterns.gofdesignpatterns.singleton;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 public class SingletonApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, IOException, ClassNotFoundException {
         /**
          * 싱글톤 패턴을 구현하기 전, 두 객체인스턴스는 서로 다르다.
          */
@@ -43,6 +54,39 @@ public class SingletonApp {
 
         // 두 객체 인스턴스는 다르기 때문에, false라는 결과가 나올 것이다.
         System.out.println(settingsC != settingsC1);
+
+        /**
+         * inner class 를 이용하여, 싱글톤을 구현
+         */
+        SettingsD settingsD = SettingsD.getInstance();
+        SettingsD settingsD1 = SettingsD.getInstance();
+
+        System.out.println(settingsD != settingsD1);
+
+        /**
+         * Java의 Reflection을 이용하여 Singleton을 깨트릴 수 있다.
+         */
+        Constructor<SettingsD> constructor = SettingsD.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        SettingsD settingsD2 = constructor.newInstance();
+
+        System.out.println(settingsD != settingsD2);
+
+        /**
+         * 직렬화와 역직렬화를 통해 Singleton을 깨트릴 수 있다.
+         */
+        SettingsD settingsD3 = SettingsD.getInstance();
+        SettingsD settingsD4 = null;
+        try (ObjectOutput output = new ObjectOutputStream(new FileOutputStream("settingsD.obj"))) {
+            output.writeObject(settingsD3);
+        }
+
+        try (ObjectInput input = new ObjectInputStream(new FileInputStream("settingsD.obj"))) {
+            settingsD4 = (SettingsD) input.readObject();
+        }
+
+        System.out.println(settingsD3 != settingsD4);
+
 
 
 

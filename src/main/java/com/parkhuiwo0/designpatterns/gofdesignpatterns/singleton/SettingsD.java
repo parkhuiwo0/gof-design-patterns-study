@@ -1,6 +1,8 @@
 package com.parkhuiwo0.designpatterns.gofdesignpatterns.singleton;
 
-public class SettingsD {
+import java.io.Serializable;
+
+public class SettingsD implements Serializable {
 
     private SettingsD() {}
 
@@ -14,5 +16,12 @@ public class SettingsD {
      */
     public static SettingsD getInstance() {
         return SettingsHolder.INSTANCE;
+    }
+
+    /**
+     * 역직렬화를 통한 싱글톤이 꺠지는 현상을 방지하기 위해
+     */
+    protected Object readResolve() {
+        return getInstance();
     }
 }
