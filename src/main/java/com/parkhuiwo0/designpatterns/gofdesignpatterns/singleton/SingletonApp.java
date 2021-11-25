@@ -112,6 +112,7 @@ public class SingletonApp {
             settingsE3 = (SettingsE) input.readObject();
         }
 
+        // true
         System.out.println(settingsE2 != settingsE3);
 
     }
