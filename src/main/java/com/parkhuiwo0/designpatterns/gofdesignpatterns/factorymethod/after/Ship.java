@@ -1,5 +1,8 @@
 package com.parkhuiwo0.designpatterns.gofdesignpatterns.factorymethod.after;
 
+import com.parkhuiwo0.designpatterns.gofdesignpatterns.abstarctfactory.after.Anchor;
+import com.parkhuiwo0.designpatterns.gofdesignpatterns.abstarctfactory.after.Wheel;
+
 public class Ship {
 
     private String name;
@@ -39,5 +42,13 @@ public class Ship {
                 ", color='" + color + '\'' +
                 ", logo='" + logo + '\'' +
                 '}';
+    }
+
+    public void setAnchor(Anchor anchor) {
+
+    }
+
+    public void setWheel(Wheel wheel) {
+
     }
 }
