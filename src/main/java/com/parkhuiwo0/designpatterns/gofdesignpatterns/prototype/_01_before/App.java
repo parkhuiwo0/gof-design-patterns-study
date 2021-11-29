@@ -8,6 +8,7 @@ public class App {
         repository.setName("live-study");
 
         GithubIssue githubIssue = new GithubIssue(repository);
+        // 바꾸고자 하는 데이터는 아래 두 개이다.
         githubIssue.setId(1);
         githubIssue.setTitle("1주차 과제: JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가.");
 
