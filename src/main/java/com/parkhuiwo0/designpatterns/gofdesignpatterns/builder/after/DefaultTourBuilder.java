@@ -9,6 +9,24 @@ import java.util.List;
 
 public class DefaultTourBuilder implements TourPlanBuilder {
 
+    /**
+     * 만약 Property가 많은 것이 싫다면?
+     */
+
+    private TourPlan tourPlan;
+
+    @Override
+    public TourPlanBuilder newInstance() {
+        this.tourPlan = new TourPlan();
+        return this;
+
+        /*
+         이렇게 두고 아래 메소드에 프로퍼티 설정하지 말고
+         this.tourPlan.setNights(nights);
+         이런식으로 가져갈 수 있다. 그렇다면 중복으로 프로퍼티를 가져갈 필요가 없다.
+         */
+    }
+
     private String title;
 
     private int nights;

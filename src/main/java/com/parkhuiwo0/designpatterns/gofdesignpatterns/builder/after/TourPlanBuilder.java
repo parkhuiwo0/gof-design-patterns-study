@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 public interface TourPlanBuilder {
 
+    TourPlanBuilder newInstance();
+
     /**
      * 메서드 체이닝을 통해 또 다른 메서드를 호출 하도록
      */
