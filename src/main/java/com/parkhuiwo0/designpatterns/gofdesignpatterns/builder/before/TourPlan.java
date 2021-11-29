@@ -15,12 +15,12 @@ public class TourPlan {
 
     private String whereToStay;
 
-    private List<me.whiteship.designpatterns._01_creational_patterns._04_builder._01_before.DetailPlan> plans;
+    private List<DetailPlan> plans;
 
     public TourPlan() {
     }
 
-    public TourPlan(String title, int nights, int days, LocalDate startDate, String whereToStay, List<me.whiteship.designpatterns._01_creational_patterns._04_builder._01_before.DetailPlan> plans) {
+    public TourPlan(String title, int nights, int days, LocalDate startDate, String whereToStay, List<DetailPlan> plans) {
         this.title = title;
         this.nights = nights;
         this.days = days;
@@ -81,15 +81,15 @@ public class TourPlan {
         this.whereToStay = whereToStay;
     }
 
-    public List<me.whiteship.designpatterns._01_creational_patterns._04_builder._01_before.DetailPlan> getPlans() {
+    public List<DetailPlan> getPlans() {
         return plans;
     }
 
-    public void setPlans(List<me.whiteship.designpatterns._01_creational_patterns._04_builder._01_before.DetailPlan> plans) {
+    public void setPlans(List<DetailPlan> plans) {
         this.plans = plans;
     }
 
     public void addPlan(int day, String plan) {
-        this.plans.add(new me.whiteship.designpatterns._01_creational_patterns._04_builder._01_before.DetailPlan(day, plan));
+        this.plans.add(new DetailPlan(day, plan));
     }
 }
