@@ -15,6 +15,6 @@ public class Client {
         emailMessage.setSubject("오징어게임");
         emailMessage.setText("밖은 더 지옥이더라고..");
 
-        emailSender.sendEmail(emailMessage);
+//        emailSender.sendEmail(emailMessage);
     }
 }

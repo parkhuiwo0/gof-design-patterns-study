@@ -1,4 +1,6 @@
-//package com.parkhuiwo0.designpatterns.gofdesignpatterns.structure.facade._02_after;
+package com.parkhuiwo0.designpatterns.gofdesignpatterns.structure.facade._02_after;
+
+import com.parkhuiwo0.designpatterns.gofdesignpatterns.structure.facade._02_after.EmailSettings;
 //
 //import javax.mail.Message;
 //import javax.mail.MessagingException;
@@ -10,11 +12,11 @@
 //
 public class EmailSender {
 //
-//    private EmailSettings emailSettings;
+    private EmailSettings emailSettings;
 //
-//    public EmailSender(EmailSettings emailSettings) {
-//        this.emailSettings = emailSettings;
-//    }
+    public EmailSender(EmailSettings emailSettings) {
+        this.emailSettings = emailSettings;
+    }
 //
 //    /**
 //     * 이메일 보내는 메소드
