@@ -1,4 +1,4 @@
-package com.parkhuiwo0.designpatterns.gofdesignpatterns.behavioral._01_before;
+package com.parkhuiwo0.designpatterns.gofdesignpatterns.behavioral.chainofresponsibility._01_before;
 
 public class LoggingRequestHandler extends RequestHandler {
 
